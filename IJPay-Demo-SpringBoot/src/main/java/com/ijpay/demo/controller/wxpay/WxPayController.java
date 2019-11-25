@@ -606,7 +606,7 @@ public class WxPayController extends AbstractWxPayApiController {
                 .desc("IJPay 让支付触手可及-企业付款")
                 .spbill_create_ip(ip)
                 .build()
-                .createSign(wxPayApiConfig.getPartnerKey(), SignType.HMACSHA256);
+                .createSign(wxPayApiConfig.getPartnerKey(), SignType.HMACSHA256,false);
 
         // 提现
         String transfers = WxPayApi.transfers(params, wxPayApiConfig.getCertPath(), wxPayApiConfig.getMchId());
@@ -634,10 +634,10 @@ public class WxPayController extends AbstractWxPayApiController {
             Map<String, String> params = GetTransferInfoModel.builder()
                     .nonce_str(WxPayKit.generateStr())
                     .partner_trade_no(partnerTradeNo)
-                    .mchid(wxPayApiConfig.getMchId())
+                    .mch_id(wxPayApiConfig.getMchId())
                     .appid(wxPayApiConfig.getAppId())
                     .build()
-                    .createSign(wxPayApiConfig.getPartnerKey(), SignType.HMACSHA256);
+                    .createSign(wxPayApiConfig.getPartnerKey(), SignType.HMACSHA256,false);
 
             return WxPayApi.getTransferInfo(params, wxPayApiConfig.getCertPath(), wxPayApiConfig.getMchId());
         } catch (Exception e) {
