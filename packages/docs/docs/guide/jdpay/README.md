@@ -2,7 +2,7 @@
 
 ## 官方参考文档
 
-- [京东支付](https://qpay.qq.com/buss/doc.shtml)
+- [京东支付](https://payapi.jd.com)
 - [京东支付聚合支付](https://mpayx.jd.com/statics/doc/docList.html)
 
 ##  支付方式与支付工具
@@ -30,3 +30,5 @@ IJPay 中支持的支付方式以及支付工具
  :::
  
 - [IJPay-Demo-SpringBoot](https://gitee.com/javen205/IJPay/tree/master/IJPay-Demo-SpringBoot)
+
+<Q url="tencent://message/?uin=572839485&Site=%E5%AE%A2%E6%9C%8D&Menu=yes" />

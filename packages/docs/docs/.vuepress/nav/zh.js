@@ -7,19 +7,19 @@ module.exports = [
         text: '加入VIP',
         link: '/guide/donate/',
     },
-    {
-        text: '全民云计算',
-        items: [
-            {
-                text: '云主机低至2折',
-                link: 'https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=b1hkzv2x',
-            },
-            {
-                text: '云服务器首年 88',
-                link: 'https://cloud.tencent.com/act/cps/redirect?redirect=1048&cps_key=a21676d22e4b11a883893d54e158c1d3&from=console',
-            },
-        ]
-    },
+    // {
+    //     text: '全民云计算',
+    //     items: [
+    //         {
+    //             text: '云主机低至2折',
+    //             link: 'https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=b1hkzv2x',
+    //         },
+    //         {
+    //             text: '云服务器首年 88',
+    //             link: 'https://cloud.tencent.com/act/cps/redirect?redirect=1048&cps_key=a21676d22e4b11a883893d54e158c1d3&from=console',
+    //         },
+    //     ]
+    // },
     {
         text: 'JavaDoc 文档',
         link: 'https://apidoc.gitee.com/javen205/IJPay',
@@ -40,8 +40,8 @@ module.exports = [
                 link: 'https://gitee.com/javen205/JPay'
             },
             {
-                text: 'TNW 微信公众号开发脚手架',
-                link: 'https://gitee.com/javen205/TNW'
+                text: 'TNWX 微信系开发脚手架',
+                link: 'https://gitee.com/javen205/TNWX'
             },
             {
                 text: 'weixin_guide 微信公众号开发指南',
@@ -57,10 +57,10 @@ module.exports = [
             },
         ]
     },
-    {
-        text: '1.x 文档',
-        link: 'https://ijpay.javen.dev/doc/opensource/IJPay.html',
-    },
+    // {
+    //     text: '1.x 文档',
+    //     link: 'https://ijpay.javen.dev/doc/opensource/IJPay.html',
+    // },
     {
         text: 'Gitee',
         link: 'https://gitee.com/javen205/IJPay',

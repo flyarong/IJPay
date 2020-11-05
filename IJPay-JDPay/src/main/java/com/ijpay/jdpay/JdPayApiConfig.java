@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * <p>IJPay 交流群: 723992875</p>
  *
- * <p>Node.js 版: https://gitee.com/javen205/TNW</p>
+ * <p>Node.js 版: https://gitee.com/javen205/TNWX</p>
  *
  * <p>京东支付常用配置</p>
  *
@@ -21,7 +21,8 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Builder
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
+@NoArgsConstructor
 public class JdPayApiConfig implements Serializable {
     private static final long serialVersionUID = -9044503427692786302L;
     

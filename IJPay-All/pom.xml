@@ -5,7 +5,7 @@
     <parent>
         <artifactId>IJPay</artifactId>
         <groupId>com.github.javen205</groupId>
-        <version>2.3.2</version>
+        <version>2.7.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
@@ -35,6 +35,21 @@
         <dependency>
             <groupId>com.github.javen205</groupId>
             <artifactId>IJPay-QQ</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javen205</groupId>
+            <artifactId>IJPay-UnionPay</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javen205</groupId>
+            <artifactId>IJPay-PayPal</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javen205</groupId>
+            <artifactId>IJPay-XPay</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>

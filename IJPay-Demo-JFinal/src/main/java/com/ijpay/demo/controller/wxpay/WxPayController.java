@@ -95,7 +95,7 @@ public class WxPayController extends WxPayApiController {
                 .mch_id(wxPayApiConfig.getMchId())
                 .nonce_str(WxPayKit.generateStr())
                 .body("IJPay 让支付触手可及-H5支付")
-                .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                .attach("Node.js 版:https://gitee.com/javen205/TNWX")
                 .out_trade_no(WxPayKit.generateStr())
                 .total_fee("1000")
                 .spbill_create_ip(ip)
@@ -161,7 +161,7 @@ public class WxPayController extends WxPayApiController {
                 .mch_id(wxPayApiConfig.getMchId())
                 .nonce_str(WxPayKit.generateStr())
                 .body("IJPay 让支付触手可及-公众号支付")
-                .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                .attach("Node.js 版:https://gitee.com/javen205/TNWX")
                 .out_trade_no(WxPayKit.generateStr())
                 .total_fee("1000")
                 .spbill_create_ip(ip)
@@ -214,7 +214,7 @@ public class WxPayController extends WxPayApiController {
             log.info(qrCodeUrl);
             //生成二维码保存的路径
             String name = "payQRCode1.png";
-            Boolean encode = QrCodeKit.encode(qrCodeUrl, BarcodeFormat.QR_CODE, 3, ErrorCorrectionLevel.H, "png", 200, 200,
+            boolean encode = QrCodeKit.encode(qrCodeUrl, BarcodeFormat.QR_CODE, 3, ErrorCorrectionLevel.H, "png", 200, 200,
                     PathKit.getWebRootPath() + File.separator + name);
             if (encode) {
                 //在页面上显示
@@ -271,7 +271,7 @@ public class WxPayController extends WxPayApiController {
                     .mch_id(wxPayApiConfig.getMchId())
                     .nonce_str(WxPayKit.generateStr())
                     .body("IJPay 让支付触手可及-扫码支付模式一")
-                    .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                    .attach("Node.js 版:https://gitee.com/javen205/TNWX")
                     .out_trade_no(WxPayKit.generateStr())
                     .total_fee("1")
                     .spbill_create_ip(ip)
@@ -296,7 +296,7 @@ public class WxPayController extends WxPayApiController {
                 prepayParams.put("return_code", "SUCCESS");
                 prepayParams.put("appid", appId);
                 prepayParams.put("mch_id", mchId);
-                prepayParams.put("nonceStr", System.currentTimeMillis() + "");
+                prepayParams.put("nonce_str", System.currentTimeMillis() + "");
                 prepayParams.put("prepay_id", prepayId);
                 String prepaySign = null;
                 if (sign.equals(packageSign)) {
@@ -340,7 +340,7 @@ public class WxPayController extends WxPayApiController {
                 .mch_id(wxPayApiConfig.getMchId())
                 .nonce_str(WxPayKit.generateStr())
                 .body("IJPay 让支付触手可及-扫码支付模式二")
-                .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                .attach("Node.js 版:https://gitee.com/javen205/TNWX")
                 .out_trade_no(WxPayKit.generateStr())
                 .total_fee("1")
                 .spbill_create_ip(ip)
@@ -405,7 +405,7 @@ public class WxPayController extends WxPayApiController {
                 .mch_id(wxPayApiConfig.getMchId())
                 .nonce_str(WxPayKit.generateStr())
                 .body("IJPay 让支付触手可及-刷卡支付")
-                .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                .attach("Node.js 版:https://gitee.com/javen205/TNWX")
                 .out_trade_no(WxPayKit.generateStr())
                 .total_fee("1")
                 .spbill_create_ip(ip)
@@ -462,7 +462,7 @@ public class WxPayController extends WxPayApiController {
                 .mch_id(wxPayApiConfig.getMchId())
                 .nonce_str(WxPayKit.generateStr())
                 .body("IJPay 让支付触手可及-App支付")
-                .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                .attach("Node.js 版:https://gitee.com/javen205/TNWX")
                 .out_trade_no(WxPayKit.generateStr())
                 .total_fee("1000")
                 .spbill_create_ip(ip)
@@ -518,7 +518,7 @@ public class WxPayController extends WxPayApiController {
                 .mch_id(wxPayApiConfig.getMchId())
                 .nonce_str(WxPayKit.generateStr())
                 .body("IJPay 让支付触手可及-小程序支付")
-                .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                .attach("Node.js 版:https://gitee.com/javen205/TNWX")
                 .out_trade_no(WxPayKit.generateStr())
                 .total_fee("1000")
                 .spbill_create_ip(ip)
@@ -578,7 +578,7 @@ public class WxPayController extends WxPayApiController {
                 .desc("IJPay 让支付触手可及-企业付款")
                 .spbill_create_ip(ip)
                 .build()
-                .createSign(wxPayApiConfig.getPartnerKey(), SignType.HMACSHA256,false);
+                .createSign(wxPayApiConfig.getPartnerKey(),  SignType.MD5,false);
 
         // 提现
         String transfers = WxPayApi.transfers(params, wxPayApiConfig.getCertPath(), wxPayApiConfig.getMchId());
@@ -609,7 +609,7 @@ public class WxPayController extends WxPayApiController {
                     .mch_id(wxPayApiConfig.getMchId())
                     .appid(wxPayApiConfig.getAppId())
                     .build()
-                    .createSign(wxPayApiConfig.getPartnerKey(), SignType.HMACSHA256,false);
+                    .createSign(wxPayApiConfig.getPartnerKey(), SignType.MD5,false);
 
             String transferInfo = WxPayApi.getTransferInfo(params, wxPayApiConfig.getCertPath(), wxPayApiConfig.getMchId());
             renderText(transferInfo);
@@ -760,7 +760,7 @@ public class WxPayController extends WxPayApiController {
         String returnCode = params.get("return_code");
         // 注意重复通知的情况，同一订单号可能收到多次通知，请注意一定先判断订单状态
         if (WxPayKit.codeIsOk(returnCode)) {
-            String reqInfo = params.get("req_info");
+            String reqInfo = Base64Kit.decodeToStr(params.get("req_info"));
             String decryptData = WxPayKit.decryptData(reqInfo, WxPayApiConfigKit.getWxPayApiConfig().getPartnerKey());
             log.info("退款通知解密后的数据=" + decryptData);
             // 更新订单信息

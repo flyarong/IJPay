@@ -1,5 +1,5 @@
 module.exports = ctx => ( {
-    base:'/IJPay/',
+    base:'/ijpay/',
     locales: {
         '/': {
             lang: 'zh-CN',
@@ -12,9 +12,9 @@ module.exports = ctx => ( {
         //     description: 'IJPay 让支付触手可及'
         // }
     },
-    // markdown: {
-    //     lineNumbers: true,
-    // },
+    markdown: {
+        lineNumbers: true,
+    },
     head: [
         ['link', { rel: 'icon', href: '/logo.png' }],
         ['link', { rel: 'manifest', href: '/manifest.json' }],
@@ -38,9 +38,9 @@ module.exports = ctx => ( {
                 lastUpdated: '上次更新',
                 nav: require('./nav/zh'),
                 sidebar: {
-                    '/guide/': getGuideSidebar('客户端','微信公众号开发脚手架',
+                    '/guide/': getGuideSidebar('客户端','微信系开发脚手架',
                         'IJPay 让支付触手可及','获取支付配置','支付宝支付','微信支付',
-                        'QQ 钱包支付','银联支付','京东支付','赞助'),
+                        'QQ 钱包支付','银联支付','京东支付','PayPal 支付','赞助','插件工具'),
                 },
             },
             // '/en/': {
@@ -86,8 +86,15 @@ module.exports = ctx => ( {
     ]
 })
 
-function getGuideSidebar (groupA, groupB,groupC,groupD,groupE,groupF,groupG,groupH,groupI,groupK) {
+function getGuideSidebar (groupA, groupB,groupC,groupD,groupE,groupF,groupG,groupH,groupI,groupJ,groupK,groupL) {
     return [
+        {
+            title: groupL,
+            collapsable: false,
+            children: [
+                'tools/frp/',
+            ]
+        },
         {
             title: groupA,
             collapsable: false,
@@ -100,7 +107,7 @@ function getGuideSidebar (groupA, groupB,groupC,groupD,groupE,groupF,groupG,grou
             title: groupB,
             collapsable: false,
             children: [
-                'weixin/tnw',
+                'weixin/tnwx',
                 'weixin/weixin_guide',
             ]
         },
@@ -128,6 +135,7 @@ function getGuideSidebar (groupA, groupB,groupC,groupD,groupE,groupF,groupG,grou
             children: [
                 'alipay/',
                 'alipay/init',
+                'alipay/extension',
             ]
         },
         {
@@ -136,6 +144,7 @@ function getGuideSidebar (groupA, groupB,groupC,groupD,groupE,groupF,groupG,grou
             children: [
                 'wxpay/',
                 'wxpay/external',
+                'wxpay/api-v3',
                 'wxpay/question',
             ]
         },
@@ -161,12 +170,20 @@ function getGuideSidebar (groupA, groupB,groupC,groupD,groupE,groupF,groupG,grou
             ]
         },
         {
+            title: groupJ,
+            collapsable: false,
+            children: [
+                'paypal/',
+            ]
+        },
+        {
             title: groupK,
             collapsable: false,
             children: [
                 'donate/',
             ]
         },
+
     ]
 }
 

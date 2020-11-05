@@ -73,7 +73,7 @@ QQ 支付
 ```    
 
 ::: tip
-银联支付
+银联支付-条码支付综合前置平台
 :::
 
 在项目的 pom.xml 的 dependencies 中加入以下内容:
@@ -84,7 +84,22 @@ QQ 支付
     <artifactId>IJPay-UnionPay</artifactId>
     <version>latest-version</version>
 </dependency>
-```       
+```  
+
+
+::: tip
+PayPal 支付
+:::
+
+在项目的 pom.xml 的 dependencies 中加入以下内容:
+
+```xml
+<dependency>
+    <groupId>com.github.javen205</groupId>
+    <artifactId>IJPay-PayPal</artifactId>
+    <version>latest-version</version>
+</dependency>
+```     
 
 ## 更多依赖方式
 
@@ -92,16 +107,18 @@ QQ 支付
 
 
 <script>
-export default {
-  mounted () {
-    let xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", "https://img.shields.io/maven-central/v/com.github.javen205/IJPay.json", false);
-    xmlHttp.send(null);
-    let versionInfo = JSON.parse(xmlHttp.responseText).value.replace('v', '');
-    let codeNodeList = document.querySelectorAll('code');
-    for (let i = 0; i < codeNodeList.length; i++) {
-        codeNodeList[i].innerHTML = codeNodeList[i].innerHTML.replace('latest-version', versionInfo);
-    }
-  }
-}
+// export default {
+//   mounted () {
+//     let xmlHttp = new XMLHttpRequest();
+//     xmlHttp.open("GET", "https://img.shields.io/maven-central/v/com.github.javen205/IJPay.json", false);
+//     xmlHttp.send(null);
+//     let versionInfo = JSON.parse(xmlHttp.responseText).value.replace('v', '');
+//     let codeNodeList = document.querySelectorAll('code');
+//     for (let i = 0; i < codeNodeList.length; i++) {
+//         codeNodeList[i].innerHTML = codeNodeList[i].innerHTML.replace('latest-version', versionInfo);
+//     }
+//   }
+// }
 </script>
+
+<Q url="tencent://message/?uin=572839485&Site=%E5%AE%A2%E6%9C%8D&Menu=yes" />

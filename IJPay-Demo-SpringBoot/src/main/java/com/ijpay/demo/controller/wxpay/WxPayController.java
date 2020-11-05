@@ -36,7 +36,7 @@ import java.util.Map;
  *
  * <p>IJPay 交流群: 723992875</p>
  *
- * <p>Node.js 版: https://gitee.com/javen205/TNW</p>
+ * <p>Node.js 版: https://gitee.com/javen205/TNWX</p>
  *
  * <p>微信支付 Demo</p>
  *
@@ -45,7 +45,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/wxPay")
 public class WxPayController extends AbstractWxPayApiController {
-    private Logger log = LoggerFactory.getLogger(this.getClass());
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     WxPayBean wxPayBean;
@@ -123,7 +123,7 @@ public class WxPayController extends AbstractWxPayApiController {
                 .mch_id(wxPayApiConfig.getMchId())
                 .nonce_str(WxPayKit.generateStr())
                 .body("IJPay 让支付触手可及-H5支付")
-                .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                .attach("Node.js 版:https://gitee.com/javen205/TNWX")
                 .out_trade_no(WxPayKit.generateStr())
                 .total_fee("1000")
                 .spbill_create_ip(ip)
@@ -187,7 +187,7 @@ public class WxPayController extends AbstractWxPayApiController {
                 .mch_id(wxPayApiConfig.getMchId())
                 .nonce_str(WxPayKit.generateStr())
                 .body("IJPay 让支付触手可及-公众号支付")
-                .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                .attach("Node.js 版:https://gitee.com/javen205/TNWX")
                 .out_trade_no(WxPayKit.generateStr())
                 .total_fee("1000")
                 .spbill_create_ip(ip)
@@ -240,7 +240,7 @@ public class WxPayController extends AbstractWxPayApiController {
             //生成二维码保存的路径
             String name = "payQRCode1.png";
             log.info(ResourceUtils.getURL("classpath:").getPath());
-            Boolean encode = QrCodeKit.encode(qrCodeUrl, BarcodeFormat.QR_CODE, 3, ErrorCorrectionLevel.H,
+            boolean encode = QrCodeKit.encode(qrCodeUrl, BarcodeFormat.QR_CODE, 3, ErrorCorrectionLevel.H,
                     "png", 200, 200,
                     ResourceUtils.getURL("classpath:").getPath().concat("static").concat(File.separator).concat(name));
             if (encode) {
@@ -301,7 +301,7 @@ public class WxPayController extends AbstractWxPayApiController {
                     .mch_id(wxPayApiConfig.getMchId())
                     .nonce_str(WxPayKit.generateStr())
                     .body("IJPay 让支付触手可及-扫码支付模式一")
-                    .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                    .attach("Node.js 版:https://gitee.com/javen205/TNWX")
                     .out_trade_no(WxPayKit.generateStr())
                     .total_fee("1")
                     .spbill_create_ip(ip)
@@ -326,9 +326,9 @@ public class WxPayController extends AbstractWxPayApiController {
                 prepayParams.put("return_code", "SUCCESS");
                 prepayParams.put("appid", appId);
                 prepayParams.put("mch_id", mchId);
-                prepayParams.put("nonceStr", System.currentTimeMillis() + "");
+                prepayParams.put("nonce_str", System.currentTimeMillis() + "");
                 prepayParams.put("prepay_id", prepayId);
-                String prepaySign = null;
+                String prepaySign;
                 if (sign.equals(packageSign)) {
                     prepayParams.put("result_code", "SUCCESS");
                 } else {
@@ -372,7 +372,7 @@ public class WxPayController extends AbstractWxPayApiController {
                 .mch_id(wxPayApiConfig.getMchId())
                 .nonce_str(WxPayKit.generateStr())
                 .body("IJPay 让支付触手可及-扫码支付模式二")
-                .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                .attach("Node.js 版:https://gitee.com/javen205/TNWXX")
                 .out_trade_no(WxPayKit.generateStr())
                 .total_fee("1")
                 .spbill_create_ip(ip)
@@ -401,7 +401,7 @@ public class WxPayController extends AbstractWxPayApiController {
         String qrCodeUrl = result.get("code_url");
         String name = "payQRCode2.png";
 
-        Boolean encode = QrCodeKit.encode(qrCodeUrl, BarcodeFormat.QR_CODE, 3, ErrorCorrectionLevel.H, "png", 200, 200,
+        boolean encode = QrCodeKit.encode(qrCodeUrl, BarcodeFormat.QR_CODE, 3, ErrorCorrectionLevel.H, "png", 200, 200,
                 request.getSession().getServletContext().getRealPath("/") + File.separator + name);
         if (encode) {
             //在页面上显示
@@ -435,7 +435,7 @@ public class WxPayController extends AbstractWxPayApiController {
                 .mch_id(wxPayApiConfig.getMchId())
                 .nonce_str(WxPayKit.generateStr())
                 .body("IJPay 让支付触手可及-刷卡支付")
-                .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                .attach("Node.js 版:https://gitee.com/javen205/TNWXX")
                 .out_trade_no(WxPayKit.generateStr())
                 .total_fee("1")
                 .spbill_create_ip(ip)
@@ -492,7 +492,7 @@ public class WxPayController extends AbstractWxPayApiController {
                 .mch_id(wxPayApiConfig.getMchId())
                 .nonce_str(WxPayKit.generateStr())
                 .body("IJPay 让支付触手可及-App支付")
-                .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                .attach("Node.js 版:https://gitee.com/javen205/TNWXX")
                 .out_trade_no(WxPayKit.generateStr())
                 .total_fee("1000")
                 .spbill_create_ip(ip)
@@ -548,7 +548,7 @@ public class WxPayController extends AbstractWxPayApiController {
                 .mch_id(wxPayApiConfig.getMchId())
                 .nonce_str(WxPayKit.generateStr())
                 .body("IJPay 让支付触手可及-小程序支付")
-                .attach("Node.js 版:https://gitee.com/javen205/TNW")
+                .attach("Node.js 版:https://gitee.com/javen205/TNWXX")
                 .out_trade_no(WxPayKit.generateStr())
                 .total_fee("1000")
                 .spbill_create_ip(ip)
@@ -606,7 +606,7 @@ public class WxPayController extends AbstractWxPayApiController {
                 .desc("IJPay 让支付触手可及-企业付款")
                 .spbill_create_ip(ip)
                 .build()
-                .createSign(wxPayApiConfig.getPartnerKey(), SignType.HMACSHA256,false);
+                .createSign(wxPayApiConfig.getPartnerKey(), SignType.MD5, false);
 
         // 提现
         String transfers = WxPayApi.transfers(params, wxPayApiConfig.getCertPath(), wxPayApiConfig.getMchId());
@@ -637,7 +637,7 @@ public class WxPayController extends AbstractWxPayApiController {
                     .mch_id(wxPayApiConfig.getMchId())
                     .appid(wxPayApiConfig.getAppId())
                     .build()
-                    .createSign(wxPayApiConfig.getPartnerKey(), SignType.HMACSHA256,false);
+                    .createSign(wxPayApiConfig.getPartnerKey(), SignType.MD5, false);
 
             return WxPayApi.getTransferInfo(params, wxPayApiConfig.getCertPath(), wxPayApiConfig.getMchId());
         } catch (Exception e) {
@@ -727,28 +727,35 @@ public class WxPayController extends AbstractWxPayApiController {
      */
     @RequestMapping(value = "/refund", method = {RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
-    public String refund(@RequestParam("transactionId") String transactionId,
-                         @RequestParam("out_trade_no") String outTradeNo) {
+    public String refund(@RequestParam(value = "transactionId", required = false) String transactionId,
+                         @RequestParam(value = "outTradeNo", required = false) String outTradeNo) {
+        try {
+            log.info("transactionId: {} outTradeNo:{}", transactionId, outTradeNo);
 
-        if (StrKit.isBlank(outTradeNo) && StrKit.isBlank(transactionId)) {
-            return "transactionId、out_trade_no二选一";
+            if (StrKit.isBlank(outTradeNo) && StrKit.isBlank(transactionId)) {
+                return "transactionId、out_trade_no二选一";
+            }
+            WxPayApiConfig wxPayApiConfig = WxPayApiConfigKit.getWxPayApiConfig();
+
+            Map<String, String> params = RefundModel.builder()
+                    .appid(wxPayApiConfig.getAppId())
+                    .mch_id(wxPayApiConfig.getMchId())
+                    .nonce_str(WxPayKit.generateStr())
+                    .transaction_id(transactionId)
+                    .out_trade_no(outTradeNo)
+                    .out_refund_no(WxPayKit.generateStr())
+                    .total_fee("1")
+                    .refund_fee("1")
+                    .notify_url(refundNotifyUrl)
+                    .build()
+                    .createSign(wxPayApiConfig.getPartnerKey(), SignType.MD5);
+            String refundStr = WxPayApi.orderRefund(false, params, wxPayApiConfig.getCertPath(), wxPayApiConfig.getMchId());
+            log.info("refundStr: {}", refundStr);
+            return refundStr;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        WxPayApiConfig wxPayApiConfig = WxPayApiConfigKit.getWxPayApiConfig();
-
-        Map<String, String> params = RefundModel.builder()
-                .appid(wxPayApiConfig.getAppId())
-                .mch_id(wxPayApiConfig.getMchId())
-                .nonce_str(WxPayKit.generateStr())
-                .transaction_id(transactionId)
-                .out_trade_no(outTradeNo)
-                .out_refund_no(WxPayKit.generateStr())
-                .total_fee("1")
-                .refund_fee("1")
-                .notify_url(refundNotifyUrl)
-                .build()
-                .createSign(wxPayApiConfig.getPartnerKey(), SignType.MD5);
-
-        return WxPayApi.orderRefund(false, params, wxPayApiConfig.getCertPath(), wxPayApiConfig.getMchId());
+        return null;
     }
 
     /**
@@ -799,6 +806,42 @@ public class WxPayController extends AbstractWxPayApiController {
             xml.put("return_code", "SUCCESS");
             xml.put("return_msg", "OK");
             return WxPayKit.toXml(xml);
+        }
+        return null;
+    }
+
+    @RequestMapping(value = "/sendRedPack", method = {RequestMethod.POST, RequestMethod.GET})
+    @ResponseBody
+    public String sendRedPack(HttpServletRequest request, @RequestParam("openId") String openId) {
+        try {
+            String ip = IpKit.getRealIp(request);
+            if (StrKit.isBlank(ip)) {
+                ip = "127.0.0.1";
+            }
+
+            WxPayApiConfig wxPayApiConfig = WxPayApiConfigKit.getWxPayApiConfig();
+
+            Map<String, String> params = SendRedPackModel.builder()
+                    .nonce_str(WxPayKit.generateStr())
+                    .mch_billno(WxPayKit.generateStr())
+                    .mch_id(wxPayApiConfig.getMchId())
+                    .wxappid(wxPayApiConfig.getAppId())
+                    .send_name("IJPay 红包测试")
+                    .re_openid(openId)
+                    .total_amount("1000")
+                    .total_num("1")
+                    .wishing("感谢您使用 IJPay")
+                    .client_ip(ip)
+                    .act_name("感恩回馈活动")
+                    .remark("点 start 送红包，快来抢!")
+                    .build()
+                    .createSign(wxPayApiConfig.getPartnerKey(), SignType.MD5);
+            String result = WxPayApi.sendRedPack(params, wxPayApiConfig.getCertPath(), wxPayApiConfig.getMchId());
+            System.out.println("发送红包结果:" + result);
+            Map<String, String> map = WxPayKit.xmlToMap(result);
+            return JSON.toJSONString(map);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
