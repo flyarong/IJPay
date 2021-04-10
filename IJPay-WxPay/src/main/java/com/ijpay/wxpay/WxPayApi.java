@@ -33,9 +33,6 @@ import java.util.Map;
  */
 public class WxPayApi {
 
-    private WxPayApi() {
-    }
-
     /**
      * 获取接口请求的 URL
      *
@@ -1333,6 +1330,16 @@ public class WxPayApi {
      */
     public static String downloadFundFlow(Map<String, String> params, InputStream certFile, String certPass) {
         return execution(getReqUrl(WxApiType.DOWNLOAD_FUND_FLOW), params, certFile, certPass);
+    }
+
+    /**
+     * 刷脸设备获取设备调用凭证
+     *
+     * @param params 请求参数
+     * @return {@link String} 请求返回的结果
+     */
+    public static String getAuthInfo(Map<String, String> params) {
+        return execution(getReqUrl(WxApiType.GET_AUTH_INFO, WxDomain.PAY_APP, false), params);
     }
 
     /**

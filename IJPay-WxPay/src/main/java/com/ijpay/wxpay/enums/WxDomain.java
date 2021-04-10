@@ -38,7 +38,11 @@ public enum WxDomain {
      * 活动
      */
     ACTION("https://action.weixin.qq.com"),
-    ;
+    /**
+     * 刷脸支付
+     * PAY_APP
+     */
+    PAY_APP("https://payapp.weixin.qq.com");
 
 
     /**

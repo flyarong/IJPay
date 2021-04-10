@@ -243,6 +243,10 @@ public enum WxApiType {
      */
     PARTNER_DELETE_ENTRUST_CONTRACT("/papay/partner/deletecontract"),
     /**
+     * 刷脸获取调用凭证
+     */
+    GET_AUTH_INFO("/face/get_wxpayface_authinfo"),
+    /**
      * 刷脸支付
      */
     FACE_PAY("/pay/facepay"),
@@ -353,6 +357,28 @@ public enum WxApiType {
      * 商户解除用户授权关系
      */
     PAY_SCORE_PERMISSIONS_TERMINATE("/payscore/users/%s/permissions/%s/terminate"),
+
+    /**
+     * 商户预授权
+     */
+    PAY_SCORE_PERMISSIONS("/v3/payscore/permissions"),
+    /**
+     * 查询与用户授权记录（授权协议号）
+     */
+    PAY_SCORE_PERMISSIONS_AUTHORIZATION_CODE("/v3/payscore/permissions/authorization-code/%s"),
+    /**
+     * 解除用户授权关系（授权协议号）
+     */
+    PAY_SCORE_PERMISSIONS_AUTHORIZATION_CODE_TERMINATE("/v3/payscore/permissions/authorization-code/%s/terminate"),
+    /**
+     * 查询与用户授权记录（openid）
+     */
+    PAY_SCORE_PERMISSIONS_OPENID("/v3/payscore/permissions/openid/%s"),
+    /**
+     * 解除用户授权关系（openid）
+     */
+    PAY_SCORE_PERMISSIONS_OPENID_TERMINATE("/v3/payscore/permissions/openid/%s/terminate"),
+
 
     /**
      * 特约商户进件-提交申请单
@@ -545,6 +571,14 @@ public enum WxApiType {
      * 点金计划-同业过滤标签管理
      */
     SET_ADVERTISING_INDUSTRY_FILTER("/v3/goldplan/merchants/set-advertising-industry-filter"),
+    /**
+     * 开通广告展示
+     */
+    GOLD_PLAN_OPEN_ADVERTISING_SHOW("/v3/goldplan/merchants/open-advertising-show"),
+    /**
+     * 关闭广告展示
+     */
+    GOLD_PLAN_CLOSE_ADVERTISING_SHOW("/v3/goldplan/merchants/close-advertising-show"),
 
 
     /**
@@ -610,6 +644,14 @@ public enum WxApiType {
      */
     PROFIT_SHARING_FINISH_ORDER("/v3/ecommerce/profitsharing/finish-order"),
     /**
+     * 添加分账接收方
+     */
+    PROFIT_SHARING_RECEIVERS_ADD("/v3/ecommerce/profitsharing/receivers/add"),
+    /**
+     * 删除分账接收方
+     */
+    PROFIT_SHARING_RECEIVERS_DELETE("/v3/ecommerce/profitsharing/receivers/delete"),
+    /**
      * 电商收付通-退款接口-退款申请
      */
     E_COMMERCE_REFUNDS("/v3/ecommerce/refunds/apply"),
@@ -665,6 +707,11 @@ public enum WxApiType {
      * 电商收付通-提现接口-按日下载提现异常文件
      */
     WITHDRAW_BILL("/v3/merchant/fund/withdraw/bill-type/%s"),
+    
+    /**
+     * 申请二级商户资金账单API
+     */
+    E_COMMERCE_FUND_FLOW_BILL("/v3/ecommerce/bill/fundflowbill"),
     /**
      * 申请交易账单
      */
@@ -791,6 +838,14 @@ public enum WxApiType {
      */
     CLOSE_ORDER_BY_NO("/v3/pay/transactions/out-trade-no/%s/close"),
     PARTNER_CLOSE_ORDER_BY_NO("/v3/pay/partner/transactions/out-trade-no/%s/close"),
+    /**
+     * 申请退款
+     */
+    DOMESTIC_REFUNDS("/v3/refund/domestic/refunds"),
+    /**
+     * 查询单笔退款
+     */
+    DOMESTIC_REFUNDS_QUERY("/v3/refund/domestic/refunds/%s"),
 
 
     /**
@@ -806,7 +861,42 @@ public enum WxApiType {
     /**
      * 智慧商圈-商圈积分同步
      */
-    BUSINESSCIRCLE_POINTS_NOTIFY("/v3/businesscircle/points/notify"),
+    BUSINESS_CIRCLE_POINTS_NOTIFY("/v3/businesscircle/points/notify"),
+
+
+    /**
+     * 连锁品牌-分账-查询分账
+     */
+    BRAND_PROFIT_SHARING_ORDERS("/v3/brand/profitsharing/orders"),
+    /**
+     * 连锁品牌-分账回退-查询分账回退
+     */
+    BRAND_PROFIT_SHARING_RETURN_ORDERS("/v3/brand/profitsharing/returnorders"),
+    /**
+     * 连锁品牌-完结分账
+     */
+    BRAND_PROFIT_SHARING_FINISH_ORDER("/v3/brand/profitsharing/finish-order"),
+    /**
+     * 连锁品牌-添加分账接收方
+     */
+    BRAND_PROFIT_SHARING_RECEIVERS_ADD("/v3/brand/profitsharing/receivers/add"),
+    /**
+     * 连锁品牌-删除分账接收方
+     */
+    BRAND_PROFIT_SHARING_RECEIVERS_delete("/v3/brand/profitsharing/receivers/delete"),
+
+    /**
+     * 预受理领卡
+     */
+    DISCOUNT_CARD("/v3/discount-card/cards"),
+    /**
+     * 增加用户记录
+     */
+    DISCOUNT_CARD_ADD_USER_RECORDS("/v3/discount-card/cards/%s/add-user-records"),
+    /**
+     * 查询先享卡订单
+     */
+    DISCOUNT_CARD_GET("/v3/discount-card/cards/%s"),
     ;
 
     /**
